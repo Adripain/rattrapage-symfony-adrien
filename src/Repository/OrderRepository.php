@@ -20,6 +20,7 @@ class OrderRepository
         $orders[] = [
             'id' => $order->getId(),
             'products' => $order->getProducts(),
+            'date' => $order->getDate(),
             'phoneNumber' => $order->getPhoneNumber(),
         ];
         file_put_contents($this->file, json_encode($orders, JSON_PRETTY_PRINT));
