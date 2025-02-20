@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Produits en vznte{% endblock %}
+
+{% block body %}
+    <h1>Liste des Produit en vente</h1>
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Categories</th>
+                <th>Numeros</th>
+                <th>Prix</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+                <tr>
+                    <td>{{ product.id }}</td>
+                    <td>{{ product.category }}</td>
+                    <td>{{ product.num }}</td>
+                    <td>{{ product.price }} €</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('product_create') }}" class="btn btn-primary">Ajouter un Produit</a>
+{% endblock %}

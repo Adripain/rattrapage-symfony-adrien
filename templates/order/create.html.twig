@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle Commande{% endblock %}
+
+{% block body %}
+    <h1>Nouvelle Commande</h1>
+
+    <form method="post" action="{{ path('order_create') }}">
+        <div class="mb-3">
+            <label for="products" class="form-label">Produits (IDs séparés par des virgules)</label>
+            <input type="text" class="form-control" id="products" name="products" required>
+        </div>
+        <div class="mb-3">
+            <label for="phoneNumber" class="form-label">téléone du client</label>
+            <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" required>
+        </div>
+        <button type="submit" class="btn btn-success">créer</button>
+    </form>
+
+    <a href="{{ path('order_list') }}" class="btn btn-secondary mt-3">Retour à la liste</a>
+{% endblock %}
