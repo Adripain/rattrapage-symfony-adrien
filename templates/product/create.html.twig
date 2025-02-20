@@ -1,11 +1,25 @@
-<h1>Créer une nouvelle collaboration</h1>
-<form method="post">
-    <label for="title">Titre :</label>
-    <input type="text" id="title" name="title" required>
+{% extends 'base.html.twig' %}
 
-    <label for="description">Description :</label>
-    <textarea id="description" name="description" required></textarea>
+{% block title %}Ajouter un Produit{% endblock %}
 
-    <button type="submit">Créer</button>
-</form>
-<a href="{{ path('collaboration_list') }}">Retour à la liste</a>
+{% block body %}
+    <h1>Ajouter un Produit</h1>
+
+    <form method="post" action="{{ path('product_create') }}">
+        <div class="mb-3">
+            <label for="category" class="form-label">Catégorie</label>
+            <input type="text" class="form-control" id="category" name="category" required>
+        </div>
+        <div class="mb-3">
+            <label for="num" class="form-label">Numéro</label>
+            <input type="text" class="form-control" id="num" name="num" required>
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Prix</label>
+            <input type="number" class="form-control" id="price" name="price" step="0.01" required>
+        </div>
+        <button type="submit" class="btn btn-success">ajouter</button>
+    </form>
+
+    <a href="{{ path('product_list') }}" class="btn btn-secondary mt-3">Retour</a>
+{% endblock %}
